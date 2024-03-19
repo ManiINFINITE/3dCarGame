@@ -1,0 +1,488 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: skyblue;
+    overflow: hidden;
+}
+
+.signature {
+    position: absolute;
+    margin-right: 1300px;
+    margin-bottom: 580px;
+}
+
+.ground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 1500px;
+    height: 400px;
+    margin-top: 350px;
+    background: linear-gradient(to bottom, rgb(1, 57, 1), green, rgb(13, 48, 13));
+}
+
+.sun {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: yellow;
+    border-radius: 50%;
+    margin-bottom: 500px;
+    margin-right: 15px;
+    box-shadow: 
+        inset 0 0 20px 5px orangered,
+        0 0 100px 30px orangered
+    ;
+    filter: blur(3px);
+}
+
+.road {
+    position: absolute;
+    border-bottom: 400px solid #555;
+	border-left: 400px solid transparent;
+	border-right: 400px solid transparent;
+	height: 0;
+	width: 250px;
+    margin-top: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.road .line {
+    position: absolute;
+    border-bottom: 60px solid yellow;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    height: 0;
+    width: 10px;
+    margin-top: 60px;
+    animation: lineMove .5s linear infinite;
+    transition: all .5s ease;
+}
+
+.road .line.active {
+    animation: lineMove .225s linear infinite;
+}
+
+.road .line.decrease {
+    animation: lineMove 3.5s linear infinite;
+}
+
+@keyframes decreaseSpeed {
+    from {
+        animation: lineMove .225s linear infinite;
+    }
+    to {
+        animation: lineMove 3.5s linear infinite;
+    }
+}
+
+@keyframes lineMove {
+    from {
+        transform: scale(1);
+        margin-top: 60px;
+        width: 10px;
+    }
+    to {
+        transform: scale(4);
+        margin-top: 900px;
+        width: 15px;
+    }
+}
+
+.ground #treeBody {
+    position: absolute;
+    width: 50px;
+    height: 120px;
+    background: linear-gradient(45deg, brown, rgb(77, 21, 21), rgb(55, 5, 5));
+}
+
+.ground .treeRight #treeBody {
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -320px;
+}
+
+.ground .treeLeft #treeBody {
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -320px;
+}
+
+.ground #treeHead {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(35deg, green, rgb(49, 204, 49), rgb(22, 53, 22));
+}
+
+.ground .treeRight #treeHead {
+    margin-left: 100px;
+    margin-top: -400px;
+    filter: blur(1.5px);
+}
+
+.ground .treeLeft #treeHead {
+    margin-left: -250px;
+    margin-top: -400px;
+    filter: blur(1.5px);
+}
+
+.ground .treeRight {
+    animation: treeRightMove .5s linear infinite;
+}
+
+.ground .treeLeft {
+    animation: treeLeftMove .5s linear infinite;
+}
+
+.ground .treeLeft,
+.ground .treeRight {
+    position: absolute;
+}
+
+.ground .treeLeft.active {
+    animation: treeRightMoveA .225s linear infinite;
+}
+
+.ground .treeRight.active {
+    animation: treeLeftMoveA .225s linear infinite;
+}
+
+.ground .treeLeft.decrease {
+    animation: treeLeftMove 3.5s linear infinite;
+}
+
+.ground .treeRight.decrease {
+    animation: treeRightMove 3.5s linear infinite;
+}
+
+@keyframes treeRightMove {
+    from {
+        margin-top: -30px;
+        margin-left: 10px;
+        transform: scale(.7);
+    }
+    to {
+        margin-top: 1500px;
+        margin-left: 800px;
+        transform: scale(3);
+    }
+}
+
+@keyframes treeRightMoveA {
+    from {
+        margin-top: 30px;
+        margin-left: 10px;
+        transform: scale(1);
+    }
+    to {
+        margin-top: 2000px;
+        margin-right: 1500px;
+        transform: scale(3.5);
+    }
+}
+
+
+
+@keyframes treeLeftMoveA {
+    from {
+        margin-top: 30px;
+        margin-right: 10px;
+        transform: scale(1);
+    }
+    to {
+        margin-top: 2000px;
+        margin-left: 1500px;
+        transform: scale(3.5);
+    }
+}
+
+@keyframes treeLeftMove {
+    from {
+        margin-top: -30px;
+        margin-right: 10px;
+        transform: scale(.7);
+    }
+    to {
+        margin-top: 1500px;
+        margin-right: 800px;
+        transform: scale(3);
+    }
+}
+
+.road .car {
+    position: absolute;
+    width: 230px;
+    height: 110px;
+    background-color: #000;
+    border-radius: 30% / 20%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-top: 400px;
+    margin-left: 0;
+    transition: all .75s ease-in-out;
+}
+
+.road .car .roof {
+    position: absolute;
+    border-bottom: 50px solid black;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    height: 0;
+    width: 100px;
+    margin-top: -40px;
+    margin-left: 33px;
+}
+
+.road .car .roof #backWindow {
+    position: absolute;
+    border-bottom: 40px solid skyblue;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 80px;
+    margin-left: -15px;
+    margin-top: 6px;
+}
+
+.road .car #backLightRight,
+.road .car #backLightLeft {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    background-color: red;
+    box-shadow: inset 0 0 10px 5px rgb(128, 0, 0);
+}
+
+.road .car #backLightRight {
+    margin-left: 175px;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.road .car #backLightLeft {
+    margin-left: 15px;
+    margin-top: 12px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.road .car #backLightRight.active,
+.road .car #backLightLeft.active {
+    box-shadow: 0 0 20px 10px red;
+}
+
+.road .car .flashLightRight,
+.road .car .flashLightLeft {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background-color: black;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.road .car .flashLightRight {
+    margin-left: 175px;
+    margin-top: 55px;
+}
+
+.road .car .flashLightLeft {
+    margin-left: 15px;
+    margin-top: 56px;
+}
+
+.road .car .flashLightRight.active,
+.road .car .flashLightLeft.active {
+    background-color: red;
+    box-shadow: 0 0 10px 3px red;
+} 
+
+.road .car .flashLightRight #flashRightColor {
+    position: absolute;
+    background-color: orangered;
+    width: 40px;
+    height: 5px;
+    border-radius: 3px;
+    margin-left: -40px;
+    animation: none;
+}
+
+.road .car .flashLightLeft #flashLeftColor {
+    position: absolute;
+    background-color: orangered;
+    width: 40px;
+    height: 5px;
+    border-radius: 3px;
+    margin-left: 40px;
+    animation: none;
+}
+
+@keyframes flashRightAnimation {
+    from {
+        margin-left: -40px;
+    }
+    to {
+        margin-left: 0px;
+    }
+}
+
+@keyframes flashLeftAnimation {
+    from {
+        margin-left: 40px;
+    }
+    to {
+        margin-left: 0px;
+    }
+}
+
+.road .car .tireRight,
+.road .car .tireLeft {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    background-color: rgb(0, 0, 0);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: inset 0 0 5px rgb(31, 31, 31);
+    border:2px solid rgb(41, 41, 41);
+}
+
+.road .car .tireRight {
+    margin-left: 170px;
+    margin-top: 110px;
+}
+
+.road .car .tireLeft {
+    margin-left: 18px;
+    margin-top: 110px;
+}
+
+.road .car #logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 105px;
+    margin-top: 30px;
+}
+
+.road .car #bottomLightRight,
+.road .car #bottomLightLeft {
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color: red;
+    box-shadow: inset 0 0 5px 1px rgb(125, 0, 0);
+}
+
+.road .car #bottomLightRight {
+    margin-left: 185px;
+    margin-top: 100px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.road .car #bottomLightLeft {
+    margin-left: 16px;
+    margin-top: 100px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.road .car #reverseLightRight,
+.road .car #reverseLightLeft {
+    position: absolute;
+    height: 20px;
+    width: 15px;
+    background-color: #fdffba;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px rgb(255, 183, 0);
+}
+
+.road .car #reverseLightRight {
+    margin-left: 155px;
+    margin-top: 27px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.road .car #reverseLightLeft {
+    margin-left: 60px;
+    margin-top: 27px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.road .car .exhaustRight,
+.road .car .exhaustLeft {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: inset 1px 1px 5px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.road .car .exhaustRight {
+    margin-left: 150px;
+    margin-top: 85px;
+}
+
+.road .car .exhaustLeft {
+    margin-left: 51px;
+    margin-top: 86px;
+}
+
+.road .car .exhaustRight .exrFire
+.road .car .exhaustLeft .exlFire {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #000;
+    animation: none;
+    transition: all 1s;
+}
+
+@keyframes exhaustFire {
+    0% {
+        box-shadow: 0 0 30px 40px rgb(17, 0, 255);
+    }
+    10% {
+        box-shadow: 0 0 30px 10px rgb(255, 183, 0);
+    }
+    25% {
+        box-shadow: 0 0 30px 40px rgb(255, 100, 44);
+    }
+    50% {
+        box-shadow: 0 0 30px 10px rgb(255, 72, 0);
+    }
+    75% {
+        box-shadow: 0 0 30px 40px rgb(255, 100, 44);
+    }
+    90% {
+        box-shadow: 0 0 30px 10px rgb(255, 183, 0);
+    }
+    100% {
+        box-shadow: 0 0 30px 40px rgb(0, 72, 255);
+    }
+}
+
+.road .car .exhaustRight .exrFire.active {
+    animation: exhaustFire 1s linear infinite;
+}
+
+.road .car .exhaustLeft .exlFire.active {
+    animation: exhaustFire 1s linear infinite;
+}
+
